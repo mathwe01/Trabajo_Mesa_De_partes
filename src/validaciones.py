@@ -5,3 +5,11 @@ def validar_dni(texto):
         return False
     return True
 
+def validar_texto(texto, minimo, maximo):
+    texto = texto.strip()
+    if len(texto) < minimo or len(texto) > maximo:
+        return False
+    if "|" in texto:
+        return False
+    return True
+
