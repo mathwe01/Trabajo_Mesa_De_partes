@@ -13,3 +13,11 @@ def validar_texto(texto, minimo, maximo):
         return False
     return True
 
+def validar_nombre(texto):
+    texto = texto.strip()
+    if len(texto) < 3 or len(texto) > 60:
+        return False
+    for letra in texto:
+        if not letra.isalpha() and letra != " ":
+            return False
+    return True
