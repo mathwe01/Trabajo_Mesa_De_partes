@@ -21,3 +21,14 @@ def validar_nombre(texto):
         if not letra.isalpha() and letra != " ":
             return False
     return True
+
+def validar_codigo(texto):
+    if len(texto) != 11:
+        return False
+    if texto [4] != "-":
+        return False
+    if not texto[0:4].isdigit():
+        return False
+    if not texto[5:].isdigit():
+        return False
+    return True
