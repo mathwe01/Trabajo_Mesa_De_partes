@@ -15,7 +15,7 @@ def buscar_binaria(codigos, codigo):
 
     return -1
 
-def buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, codigo):
+def buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, codigo):
     if not validar_codigo(codigo):
         print("Código no válido, use el formato AAAA-NNNNNN") 
         return 
@@ -23,12 +23,12 @@ def buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fec
     posicion = buscar_binaria(codigos, codigo)
 
     if posicion == -1:
-        print("No se encontro el expediente:")
+        print("No se encontró el expediente")
     else:
         print("Código:", codigos[posicion])
         print("DNI:", dnis[posicion])
         print("Nombre:", nombres[posicion])
-        print("Dirección:", direciones[posicion])
+        print("Dirección:", direcciones[posicion])
         print("Trámite:", tramites[posicion])
         print("Asunto:", asuntos[posicion])
         print("Fecha:", fechas[posicion])
@@ -54,4 +54,3 @@ if __name__ == "__main__":
     buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, "2026-000002")
     buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, "2026-000009")
     buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, "ABC")
-    
