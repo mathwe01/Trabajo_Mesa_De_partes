@@ -46,11 +46,11 @@ if __name__ == "__main__":
     codigos = ["2026-000001", "2026-000002"]
     dnis = ["12345678", "87456123"]
     nombres = ["DIANA CARMEN FLORES CASTILLO", "CARLOS LOPEZ DIAZ"]
-    direciones = ["Jr. los jardines 220", "Av. Templo del sol 220"]
+    direcciones = ["Jr. los jardines 220", "Av. Templo del sol 220"]
     tramites = ["Constancia de no adeudo", "Registro de predios"]
     asuntos = ["Solicito constancia de no adeudo", "Registro de predio nuevo"]
     fechas = ["14/11/2026", "14/11/2026"]
 
-    buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, "2026-000002")
-    buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, "2026-000009")
-    buscar_expediente(codigos, dnis, nombres, direciones, tramites, asuntos, fechas, "ABC")
+    buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, "2026-000002")
+    buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, "2026-000009")
+    buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, "ABC")
