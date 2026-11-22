@@ -18,7 +18,16 @@ def mostrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, f
     print("Asunto:", asuntos[posicion])
     print("Fecha:", fechas[posicion])
     
-    
+def ordenar_indices(indices, valores):
+    for i in range(1, len(indices)):
+        actual = indices[i]
+        j = i - 1
+        while j >= 0 and valores[indices[j]] > valores[actual]:
+            indices[j + 1] = indices[j]
+            j = j - 1
+        indices[j + 1] = actual
+
+
 
 
 if __name__ == "__main__":
@@ -38,3 +47,19 @@ if __name__ == "__main__":
     mostrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, 0)
     print()
     mostrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, 1)
+
+    indices = [0, 1, 2]
+    ordenar_indices(indices, ["C", "A", "B"])
+    print(indices)
+
+    indices = [0, 1, 2]
+    ordenar_indices(indices, ["A", "B", "C"])
+    print(indices)
+
+    indices = [0, 1, 2]
+    ordenar_indices(indices, ["C", "B", "A"])
+    print(indices)
+
+    indices = [0]
+    ordenar_indices(indices, ["A"])
+    print(indices)
