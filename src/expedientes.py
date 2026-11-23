@@ -3,7 +3,7 @@ from validaciones import validar_dni, validar_nombre, validar_texto
 from archivos import guardar_expediente
 
 MAX = 1000
-TRAMITES = ["CONSTANCIA DE NO ADEUDO, REGISTRO DE PREDIOS, SOLICITUD SIMPLE"]
+TRAMITES = ["CONSTANCIA DE NO ADEUDO", "REGISTRO DE PREDIOS", "SOLICITUD SIMPLE"]
 ANIO = "2026" 
 
 
