@@ -1,3 +1,9 @@
+from datetime import date
+from validaciones import validar_dni, validar_nombre, validar_texto
+from archivos import guardar_expediente
+
+MAX = 1000
+TRAMITES = ["CONSTANCIA DE NO ADEUDO, REGISTRO DE PREDIOS, SOLICITUD SIMPLE"]
 ANIO = "2026" 
 
 
@@ -57,6 +63,61 @@ def listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, f
     for k in range(len(indices)):
         mostrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, indices[k])
         print() 
+        
+def registrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas):
+    if len (codigos) >= MAX:
+        print("Capacidad llena")
+        return
+    
+    dni = input("DNI (8 digitos): ")
+    while not validar_dni(dni):
+        print("El DNI debe tener 8 digitos numéricos")
+        dni = input("DNI (8 digitos): ")
+        
+    nombre = input("Nombres completos: ")
+    while not validar_nombre(nombre):
+        print("Los nombres solo pueden tener letras y espacios (de 3 a 60 caracteres)")
+        nombre = input("Nombres completos: ")
+        
+    direccion = input("Direccion: ")
+    while not validar_texto(direccion, 5, 80):
+        print("La dirección debe tener entre 5 y 80 caracteres y no puede llevar el símbolo |")
+        direccion = input("Dirección: ")
+        
+    print("Tipo de trámite: ")
+    print("1. Constancia de no adeudo")
+    print("2. Registro de predios")
+    print("3. Solicitud simple")
+    opcion = input("Elija una opción: ")
+    while opcion != "1" and opcion != "2" and opcion != "3":
+        print("Elija una opción entre 1 y 3")
+        opcion = input("Elija una opción: ")
+        
+    asunto = input("Asunto: ")
+    while not validar_texto(asunto, 5, 100):
+        print("El asunto debe tener entre 5 y 100 caracteres y no puede llevar el símbolo |")
+        asunto = input ("Asunto: ")
+    codigo = generar_codigo(codigos)
+    fecha = date.today().strftime("%d/%m/%Y")
+    tramite = TRAMITES[int(opcion) - 1]
+    
+    dni = dni.strip()
+    nombre = nombre.strip().upper()
+    direccion = direccion.strip()
+    asunto = asunto.strip()
+    
+    codigos.append(codigo)
+    dnis.append(dni)
+    nombres.append(nombre)
+    direcciones.append(direccion)
+    tramites.append(tramite)
+    asuntos.append(asunto)
+    fechas.append(fecha)
+    
+    guardar_expediente(codigo, dni, nombre, direccion, tramite, asunto, fecha)
+    print("Registrado con el código", codigo)
+
+    
 
 
 
@@ -103,7 +164,12 @@ if __name__ == "__main__":
     asuntos.append("Solicito una copia simple")
     fechas.append("20/11/2026")
 
-    listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
-    listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
-    listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
-    listar_expedientes([], [], [], [], [], [], [])
+    #listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
+    #listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
+    #listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
+    #listar_expedientes([], [], [], [], [], [], [])
+    
+    c, d, n, di, t, a, f = [], [], [], [], [], [], []
+    registrar_expediente(c, d, n, di, t, a, f)
+    mostrar_expediente(c, d, n, di, t, a, f, 0)
+    
