@@ -23,7 +23,7 @@ def main():
             codigo = input("Ingrese el código del expediente (AAAA-NNNNNN): ")
             buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, codigo)
         elif opcion == "3":
-            print("Aquí ira listar_expedientes()")
+            listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
         elif opcion == "4":
             print("Saliendo del programa...")
         else:
