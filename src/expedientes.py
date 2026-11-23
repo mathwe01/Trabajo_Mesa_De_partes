@@ -76,7 +76,7 @@ def registrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos,
         
     nombre = input("Nombres completos: ")
     while not validar_nombre(nombre):
-        print("Los nonbres solo pueden tener letras y espacios (de 3 a 60 caracteres)")
+        print("Los nombres solo pueden tener letras y espacios (de 3 a 60 caracteres)")
         nombre = input("Nombres completos: ")
         
     direccion = input("Direccion: ")
@@ -96,7 +96,26 @@ def registrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos,
     asunto = input("Asunto: ")
     while not validar_texto(asunto, 5, 100):
         print("El asunto debe tener entre 5 y 100 caracteres y no puede llevar el símbolo |")
-        asunto = input ("Asunto:")
+        asunto = input ("Asunto: ")
+    codigo = generar_codigo(codigos)
+    fecha = date.today().strftime("%d/%m/%Y")
+    tramite = TRAMITES[int(opcion) - 1]
+    
+    dni = dni.strip()
+    nombre = nombre.strip().upper()
+    direccion = direccion.strip()
+    asunto = asunto.strip()
+    
+    codigos.append(codigo)
+    dnis.append(dni)
+    nombres.append(nombre)
+    direcciones.append(direccion)
+    tramites.append(tramite)
+    asuntos.append(asunto)
+    fechas.append(fecha)
+    
+    guardar_expediente(codigo, dni, nombre, direccion, tramite, asunto, fecha)
+    print("Registrado con el código", codigo)
 
     
 
@@ -152,3 +171,5 @@ if __name__ == "__main__":
     
     c, d, n, di, t, a, f = [], [], [], [], [], [], []
     registrar_expediente(c, d, n, di, t, a, f)
+    mostrar_expediente(c, d, n, di, t, a, f, 0)
+    
