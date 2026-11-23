@@ -1,3 +1,7 @@
+from archivos import cargar_archivo
+from expedientes import registrar_expediente, listar_expedientes
+from busqueda import buscar_expediente
+
 def mostrar_menu():
     print("=== Menú Principal ===")
     print("1. Registrar ")
@@ -6,6 +10,7 @@ def mostrar_menu():
     print("4. Salir")
 
 def main():
+    codigos, dnis, nombres, direcciones, tramites, asuntos, fechas = cargar_archivo()
     opcion = ""
     while opcion != "4":
         mostrar_menu()
@@ -13,7 +18,7 @@ def main():
         print()
     
         if opcion == "1":
-            print("Aquí ira registrar_expediente()")
+            registrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
         elif opcion == "2":
             print("Aquí ira buscar_expediente()")
         elif opcion == "3":
