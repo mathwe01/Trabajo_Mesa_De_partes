@@ -20,7 +20,8 @@ def main():
         if opcion == "1":
             registrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
         elif opcion == "2":
-            print("Aquí ira buscar_expediente()")
+            codigo = input("Ingrese el código del expediente (AAAA-NNNNNN): ")
+            buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, codigo)
         elif opcion == "3":
             print("Aquí ira listar_expedientes()")
         elif opcion == "4":
