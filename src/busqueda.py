@@ -32,25 +32,3 @@ def buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fe
         print("Trámite:", tramites[posicion])
         print("Asunto:", asuntos[posicion])
         print("Fecha:", fechas[posicion])
-
-
-
-if __name__ == "__main__":
-    lista = ["2026-000001", "2026-000002", "2026-000003", "2026-000004", "2026-000005"]
-    print (buscar_binaria(lista, "2026-000003"))
-    print (buscar_binaria(lista, "2026-000001"))
-    print (buscar_binaria(lista, "2026-000005"))
-    print (buscar_binaria(lista, "2026-000009"))
-    print (buscar_binaria([], "2026-000001"))
-
-    codigos = ["2026-000001", "2026-000002"]
-    dnis = ["12345678", "87456123"]
-    nombres = ["DIANA CARMEN FLORES CASTILLO", "CARLOS LOPEZ DIAZ"]
-    direcciones = ["Jr. los jardines 220", "Av. Templo del sol 220"]
-    tramites = ["Constancia de no adeudo", "Registro de predios"]
-    asuntos = ["Solicito constancia de no adeudo", "Registro de predio nuevo"]
-    fechas = ["14/11/2026", "14/11/2026"]
-
-    buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, "2026-000002")
-    buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, "2026-000009")
-    buscar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, "ABC")
