@@ -39,7 +39,7 @@ def listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, f
         return
 
     print("Ordenar por: 1. Código 2. Nombres 3.DNI")
-    clave = input("Eliga una opción: ")
+    clave = input("Elija una opción: ")
     while clave != "1" and clave != "2" and clave != "3":
         print("Opción no válida, Elija 1, 2 o 3")
         clave = input("Elija una opción: ")
@@ -116,60 +116,3 @@ def registrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos,
     
     guardar_expediente(codigo, dni, nombre, direccion, tramite, asunto, fecha)
     print("Registrado con el código", codigo)
-
-    
-
-
-
-
-if __name__ == "__main__":
-    print(generar_codigo([]))
-    print(generar_codigo(["2026-000001"]))
-    print(generar_codigo(["2026-000001", "2026-000002", "2026-000009"]))
-    print(generar_codigo(["2026-000099"]))
-
-    codigos = ["2026-000001", "2026-000002"]
-    dnis = ["12345678", "87456123"]
-    nombres = ["DIANA CARMEN FLORES CASTILLO", "CARLOS LOPEZ DIAZ"]
-    direcciones = ["Jr. los jardines 220", "Av. Templo del sol 220"]
-    tramites = ["Constancia de no adeudo", "Registro de predios"]
-    asuntos = ["Solicito constancia de no adeudo", "Registro de predio nuevo"]
-    fechas = ["14/11/2026", "14/11/2026"]
-
-    mostrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, 0)
-    print()
-    mostrar_expediente(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas, 1)
-
-    indices = [0, 1, 2]
-    ordenar_indices(indices, ["C", "A", "B"])
-    print(indices)
-
-    indices = [0, 1, 2]
-    ordenar_indices(indices, ["A", "B", "C"])
-    print(indices)
-
-    indices = [0, 1, 2]
-    ordenar_indices(indices, ["C", "B", "A"])
-    print(indices)
-
-    indices = [0]
-    ordenar_indices(indices, ["A"])
-    print(indices)
-
-    codigos.append("2026-000003")
-    dnis.append("45871236")
-    nombres.append("ANA TORRES RUIZ")
-    direcciones.append("Calle Los Pinos 100")
-    tramites.append("Solicitud simple")
-    asuntos.append("Solicito una copia simple")
-    fechas.append("20/11/2026")
-
-    #listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
-    #listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
-    #listar_expedientes(codigos, dnis, nombres, direcciones, tramites, asuntos, fechas)
-    #listar_expedientes([], [], [], [], [], [], [])
-    
-    c, d, n, di, t, a, f = [], [], [], [], [], [], []
-    registrar_expediente(c, d, n, di, t, a, f)
-    mostrar_expediente(c, d, n, di, t, a, f, 0)
-    
