@@ -41,9 +41,3 @@ def cargar_archivo():
             asuntos.append(partes[5])
             fechas.append(partes[6])
     return codigos, dnis, nombres, direcciones, tramites, asuntos, fechas
-
-if __name__ == "__main__":
-    codigos, dnis, nombres, direcciones, tramites, asuntos, fechas = cargar_archivo()
-    print(len(codigos)) 
-    print(codigos)
-    
